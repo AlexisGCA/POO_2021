@@ -6,6 +6,7 @@
 
 package mx.unam.aragon.fes.gui;
 
+import mx.unam.aragon.fes.Empleado;
 /**
  *
  * @author Alexis
@@ -63,6 +64,8 @@ public class AltaEmpleado extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -300,13 +303,27 @@ public class AltaEmpleado extends javax.swing.JFrame {
 
         jButton4.setText("<<");
 
+        jToggleButton1.setText("Nuevo Registro");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
+
+        jToggleButton2.setText("Enviar");
+        jToggleButton2.setEnabled(false);
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jTabbedPane1)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .add(jToggleButton1)
+                .add(18, 18, 18)
+                .add(jToggleButton2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jButton4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 67, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(32, 32, 32)
                 .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -326,13 +343,50 @@ public class AltaEmpleado extends javax.swing.JFrame {
                     .add(jButton4)
                     .add(jButton3)
                     .add(jButton2)
-                    .add(jButton1))
+                    .add(jButton1)
+                    .add(jToggleButton1)
+                    .add(jToggleButton2))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+        // TODO add your handling code here:
+        System.out.println("Nuevo empleado!!!");
+        this.limpiarFormulario();
+        
+        Empleado emp= new Empleado();
+        emp.setNombre(this.jTextField1.getText());
+        emp.setApPaterno(this.jTextField2.getText());
+        emp.setApMaterno(jTextField3.getText());
+        emp.serEdad( Integer.parseInt(jTextField4.getText()) );
+        emp.setCurp(jTextField5.getText());
+        emp.getDomicilio().setCalle(this.jTextField6.getText());
+    }//GEN-LAST:event_jToggleButton1MouseClicked
+
+   private void limpiarFormulario(){
+      this.jTextField1.setText("");
+      this.jTextField2.setText("");
+      this.jTextField3.setText("");
+      this.jTextField4.setText("");
+      this.jTextField5.setText("");
+      this.jTextField6.setText("");
+      this.jTextField7.setText("");
+      this.jTextField8.setText("");
+      this.jTextField9.setText("");
+      this.jTextField10.setText("");
+      this.jTextField10.setColumns(10);
+      this.jTextField11.setText("");
+      this.jTextField12.setText("");
+      this.jTextField12.setText("");
+      this.jTextField13.setText("");
+      this.jTextField14.setText("");
+      this.jTextField14.setColums(10);
+      
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -406,6 +460,8 @@ public class AltaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 
 }
