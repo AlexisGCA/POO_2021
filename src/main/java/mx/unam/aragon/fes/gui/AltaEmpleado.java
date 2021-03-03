@@ -103,6 +103,11 @@ public class AltaEmpleado extends javax.swing.JFrame {
         jLabel6.setText("Colonia:");
 
         jTextField8.setText("jTextField8");
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Delegación:");
 
@@ -358,13 +363,27 @@ public class AltaEmpleado extends javax.swing.JFrame {
         this.limpiarFormulario();
         
         Empleado emp= new Empleado();
-        emp.setNombre(this.jTextField1.getText());
-        emp.setApPaterno(this.jTextField2.getText());
-        emp.setApMaterno(jTextField3.getText());
-        emp.serEdad( Integer.parseInt(jTextField4.getText()) );
-        emp.setCurp(jTextField5.getText());
-        emp.getDomicilio().setCalle(this.jTextField6.getText());
+        emp.setNombre( this.JTextFieldl.getText() ); 
+        emp.setApPaterno( this.jTextField2.getText() ); 
+        emp.setApMaterno( jTextField3.getText() );
+        emp.setEdad( Integer.parseInt ( jTextField4.getText() ) ); // converte a int 
+        emp.setCurp( jTextField5.getText() );
+        emp.setDomicilio(new Direccion() );
+        emp.getDomicilio().setCalle(this.jTextField6.getText() ); 
+        emp.getDomicilio().setNumero(this.jTextField7.getText() ); 
+        emp.getDomicilio().setColonia(this.jTextField8.getText() );
+        emp.getDomicilio().setDelegacion(this.jTextField9.getText() ); 
+        emp.getDomicilio().setEstado(this.jTextFieldl0.getText() );
+        emp.setNumeroEmpleado(Integer.parseInt(this.jTextFieldll.getText() ) ); 
+        emp.setDepartamento(this.jTextFieldl2.getText() );
+        emp.setSueldo(Float.parseFloat(this.jTextFieldl3.getText() ) );
+        emp.setHorasExtra(Integer.parseInt(this.jTextFieldl4.getText() ) );
+        int confirmar = JOptionPane.showConfirmDialog( this, "¿Deseas guardar estos datos?");
     }//GEN-LAST:event_jToggleButton1MouseClicked
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
 
    private void limpiarFormulario(){
       this.jTextField1.setText("");
@@ -377,14 +396,11 @@ public class AltaEmpleado extends javax.swing.JFrame {
       this.jTextField8.setText("");
       this.jTextField9.setText("");
       this.jTextField10.setText("");
-      this.jTextField10.setColumns(10);
       this.jTextField11.setText("");
       this.jTextField12.setText("");
       this.jTextField12.setText("");
       this.jTextField13.setText("");
-      this.jTextField14.setText("");
-      this.jTextField14.setColums(10);
-      
+      this.jTextField14.setText("");    
     }
     
     /**
